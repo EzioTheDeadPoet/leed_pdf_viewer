@@ -109,6 +109,33 @@ pnpm prev
 
 Open `http://localhost:4173` in your browser.
 
+---
+
+### 📱 Building Android with Capacitor
+
+The Rust backend is compiled to WebAssembly and bundled in the web
+assets so the app works entirely offline inside a native wrapper.
+
+```bash
+# install capacitor CLI if not already present
+pnpm add @capacitor/core @capacitor/cli
+
+# initialize project (replace identifiers accordingly)
+npx cap init "Leed PDF Viewer" com.yourcompany.leedpdf
+
+# add Android platform
+npx cap add android
+
+# build web + wasm and copy to android
+pnpm run build:android
+pnpm run android:open   # optional: opens Android Studio
+```
+
+The `build:wasm` script generates files under `src/lib/wasm` which is
+gitignored.
+
+---
+
 ## 🛠️ Tech Stack
 
 - **Framework**: SvelteKit + TypeScript

@@ -29,6 +29,9 @@
 	// Initialize file storage auto-cleanup when app loads
 	if (browser) {
 		onMount(() => {
+			// attempt to initialize the Rust wasm library; it's optional on non-wasm builds
+			import('$lib').then(mod => mod.initWasm()).catch(() => {});
+			
 			// Start auto-cleanup of old files every AUTO_CLEANUP_INTERVAL milliseconds
 			const stopCleanup = fileStorage.startAutoCleanup();
 

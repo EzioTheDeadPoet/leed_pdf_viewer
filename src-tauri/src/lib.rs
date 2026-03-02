@@ -4,6 +4,19 @@ use std::thread;
 use std::time::Duration;
 use tauri::{Emitter, RunEvent};
 
+// WebAssembly support: export selected functions for use in the
+// WebView-capacitor bundle. The `wasm-bindgen` crate is optional and
+// enabled via the `build:wasm` script.
+#[cfg(target_arch = "wasm32")]
+use wasm_bindgen::prelude::*;
+
+#[cfg(target_arch = "wasm32")]
+#[wasm_bindgen]
+pub fn greet() -> String {
+    "hello from rust wasm".into()
+}
+
+
 mod license;
 use license::{
     activate_license_key, check_license_smart, get_stored_license, remove_stored_license,

@@ -1,0 +1,6 @@
+[build]
+target = "wasm32-unknown-unknown"
+
+# you can override per-profile if needed
+# [target.wasm32-unknown-unknown]
+# rustflags = ["-C", "link-arg=-s"]

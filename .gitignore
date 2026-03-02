@@ -65,3 +65,6 @@ test-results/
 !URL_LOADING_FEATURE.md
 !docs/SEARCH_FEATURE.md
 !todo.md
+
+# wasm build output
+/src/lib/wasm

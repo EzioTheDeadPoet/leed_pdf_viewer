@@ -8,9 +8,16 @@ repository = "https://github.com/rudi-q/leed_pdf_viewer"
 edition = "2021"
 rust-version = "1.93"
 
+# When targeting WebAssembly we expose the same library as a cdylib
+# and use wasm-bindgen to generate JS glue.  A separate build step
+# (`wasm-pack build --target web`) pulls the generated files into the
+# web directory defined by `package.json`.
 [lib]
 name = "app_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = { version = "0.2", optional = true }
 
 [build-dependencies]
 tauri-build = { version = "2.3.1", features = [] }
