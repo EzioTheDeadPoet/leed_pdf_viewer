@@ -22,11 +22,7 @@
 		"tauri:dev": "tauri dev",
 		"tauri:build": "tauri build",
 		"tauri:build:debug": "tauri build --debug",
-		"tauri:check": "cd src-tauri && cargo check",
-		"build:wasm": "cd src-tauri && wasm-pack build --target web --out-dir ../src/lib/wasm && cd -",
-		"build:android": "pnpm run build:wasm && pnpm run build && npx cap copy android",
-		"android:open": "npx cap open android",
-		"android:sync": "npx cap sync android"
+		"tauri:check": "cd src-tauri && cargo check"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.3",
